@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import ProjectsView from '../views/ProjectsView.vue'; // Importa o novo componente de Projetos
-import ContactView from '../views/ContactView.vue';   // Importa o componente de Contato
+import ProjectsView from '../views/ProjectsView.vue';
+import ContactView from '../views/ContactView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,14 +12,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/projetos', // A URL será /projetos
+      path: '/projetos',
       name: 'projetos',
-      component: ProjectsView // Aponta para o componente ProjectsView
+      component: ProjectsView
     },
     {
-      path: '/contato', // A URL será /contato
+      path: '/contato',
       name: 'contato',
-      component: ContactView // Aponta para o componente ContactView
+      component: ContactView
     }
   ]
 });

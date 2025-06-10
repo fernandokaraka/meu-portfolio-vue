@@ -19,15 +19,11 @@
   padding: 40px 20px;
   text-align: center;
   width: 100%;
-  /* Aumentar a largura máxima para telas maiores */
-  max-width: 800px; /* Era 700px, agora 800px */
   margin: 0 auto;
 }
 
-
-.contact-section {
-  /* Class 'card' já lida com background-color e box-shadow */
-}
+/* Class 'card' já lida com background-color e box-shadow */
+.contact-section { }
 
 h1 {
   color: var(--color-text-header); /* Usando variável */
@@ -44,7 +40,7 @@ p {
 
 .contact-info {
   margin-top: 30px;
-  padding: 25px;
+  padding: 25px; /* Mais padding */
   background-color: var(--color-background-alt); /* Usando variável */
   border-radius: 8px;
   border: 1px solid var(--color-border); /* Usando variável */

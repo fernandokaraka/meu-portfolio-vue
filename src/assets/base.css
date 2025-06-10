@@ -12,17 +12,25 @@
 :root {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  width: 100%;
+  height: 100%; /* Garante que o HTML ocupa 100% da altura da viewport */
+  width: 100%;  /* Garante que o HTML ocupa 100% da largura da viewport */
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  width: 100%;      /* Garante que o body ocupa 100% da largura do HTML */
+  min-height: 100vh; /* Garante que o body ocupa pelo menos 100% da altura da viewport */
+  display: flex;     /* Transforma o body em um contêiner flexível */
+  flex-direction: column; /* Organiza os filhos (principalmente a div #app) em coluna */
+}
+
+/* Novo estilo para a div raiz do Vue */
+#app {
+  display: flex; /* Transforma a div #app em um container flexível */
+  flex-direction: column; /* Organiza os filhos (nosso App.vue) em coluna */
+  width: 100%; /* Garante que ela ocupe toda a largura do body */
+  min-height: 100vh; /* Garante que ela ocupe no mínimo a altura da viewport */
 }
 
 /* ---------------------------------------------------- */
@@ -34,43 +42,43 @@ body {
   --color-background: #f0f2f5;
   --color-background-soft: #ffffff;
   --color-background-alt: #f9f9f9;
-  --color-background-dark: #2c3e50;
+  --color-background-dark: #2c3e50; /* Cor do cabeçalho/rodapé no tema claro */
 
   --color-text: #333;
   --color-text-soft: #666;
   --color-text-header: #2c3e50;
-  --color-text-light: #ffffff;
+  --color-text-light: #ffffff; /* Texto em elementos escuros (header/footer) */
 
   --color-border: #e0e0e0;
   --color-shadow-light: rgba(0, 0, 0, 0.05);
   --color-shadow-medium: rgba(0, 0, 0, 0.1);
   --color-shadow-dark: rgba(0, 0, 0, 0.15);
 
-  --color-primary: #42b983;
+  --color-primary: #42b983; /* Verde Vue */
   --color-primary-hover: #368e61;
-  --color-secondary: #007bff;
+  --color-secondary: #007bff; /* Azul para links e botões */
   --color-secondary-hover: #0056b3;
 }
 
 /* Tema Escuro */
 body.dark-theme {
-  --color-background: #1a1a1a;
-  --color-background-soft: #2a2a2a;
-  --color-background-alt: #3a3a3a;
-  --color-background-dark: #0f0f0f;
+  --color-background: #121212; /* Preto bem escuro para o fundo principal */
+  --color-background-soft: #1e1e1e; /* Cinza escuro para cards/containers */
+  --color-background-alt: #2a2a2a; /* Outros elementos internos no tema escuro */
+  --color-background-dark: #0a0a0a; /* Preto ainda mais escuro para header/footer */
 
-  --color-text: #e0e0e0;
-  --color-text-soft: #b0b0b0;
-  --color-text-header: #f0f0f0;
-  --color-text-light: #f0f0f0;
+  --color-text: #f0f0f0; /* Texto quase branco */
+  --color-text-soft: #b0b0b0; /* Texto mais suave, cinza claro */
+  --color-text-header: #ffffff; /* Títulos brancos */
+  --color-text-light: #f0f0f0; /* Texto em elementos escuros (header/footer) */
 
-  --color-border: #444;
-  --color-shadow-light: rgba(255, 255, 255, 0.03);
-  --color-shadow-medium: rgba(0, 0, 0, 0.4);
-  --color-shadow-dark: rgba(0, 0, 0, 0.6);
+  --color-border: #333333; /* Borda mais sutil */
+  --color-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-shadow-medium: rgba(0, 0, 0, 0.5); /* Sombra mais visível no escuro */
+  --color-shadow-dark: rgba(0, 0, 0, 0.7);
 
-  --color-primary: #66cc99;
+  --color-primary: #66cc99; /* Verde mais vibrante */
   --color-primary-hover: #4fb27f;
-  --color-secondary: #6cb6ff;
+  --color-secondary: #6cb6ff; /* Azul mais claro */
   --color-secondary-hover: #4a90d9;
 }

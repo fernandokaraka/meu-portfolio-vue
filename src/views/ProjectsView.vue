@@ -6,23 +6,24 @@ const projects = ref([
     id: 1,
     title: 'Site Institucional para Cliente X (WordPress)',
     description: 'Criação de um site completo para empresa X, utilizando temas e plugins premium, com foco em otimização de SEO e responsividade.',
-    image: 'https://via.placeholder.com/400x250/FFD700/FFFFFF?text=Projeto+WordPress+1',
-    link: 'https://exemplo.com/projeto-wordpress-1',
+    image: 'https://via.placeholder.com/400x250/FFD700/FFFFFF?text=Projeto+WordPress+1', // Substitua por suas imagens reais
+    link: 'https://exemplo.com/projeto-wordpress-1', // Link para o site real
   },
   {
     id: 2,
     title: 'E-commerce para Loja Y (WordPress + WooCommerce)',
     description: 'Desenvolvimento de uma loja virtual robusta com WooCommerce, incluindo gateways de pagamento personalizados e integração de estoque.',
-    image: 'https://via.placeholder.com/400x250/ADD8E6/FFFFFF?text=Projeto+WordPress+2',
+    image: 'https://via.placeholder.com/400x250/ADD8E6/FFFFFF?text=Projeto+WordPress+2', // Substitua por suas imagens reais
     link: 'https://exemplo.com/projeto-wordpress-2',
   },
   {
     id: 3,
     title: 'Portfólio Pessoal (Vue.js)',
     description: 'Este próprio portfólio, desenvolvido com Vue.js e Vite, demonstrando minhas habilidades em front-end.',
-    image: 'https://via.placeholder.com/400x250/90EE90/FFFFFF?text=Portfólio+Vue.js',
-    link: '#',
+    image: 'https://via.placeholder.com/400x250/90EE90/FFFFFF?text=Portfólio+Vue.js', // Substitua por suas imagens reais
+    link: '#', // Ou o link para o GitHub do portfólio
   },
+  // Adicione mais projetos aqui!
 ]);
 </script>
 
@@ -47,10 +48,9 @@ const projects = ref([
   padding: 40px 20px;
   text-align: center;
   width: 100%;
-  /* Aumentar a largura máxima para telas maiores */
-  max-width: 1400px; /* Era 1200px, agora 1400px */
   margin: 0 auto;
 }
+
 h1 {
   color: var(--color-text-header); /* Usando variável */
   margin-bottom: 15px;
@@ -65,25 +65,23 @@ h1 {
 
 .projects-grid {
   display: grid;
-  /* Ajustar o minmax para permitir mais colunas em telas grandes */
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ajustado minmax para 350px */
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ajuste o minmax */
+  gap: 30px; /* Espaçamento entre os cards */
   margin-top: 40px;
 }
 
-.project-card {
-  /* Class 'card' já lida com background-color e box-shadow */
-  padding: 25px;
+.project-card { /* Já tem a classe card */
+  padding: 25px; /* Mais padding no card do projeto */
   text-align: left;
-  display: flex;
+  display: flex; /* Usar flexbox para melhor alinhamento interno */
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Empurra o link para baixo */
   transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionar transição para cores */
 }
 
 .project-image {
   width: 100%;
-  height: 220px;
+  height: 220px; /* Altura um pouco maior para as imagens */
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -101,7 +99,7 @@ h1 {
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 25px;
-  flex-grow: 1;
+  flex-grow: 1; /* Faz a descrição ocupar o espaço restante */
 }
 
 .project-link {
