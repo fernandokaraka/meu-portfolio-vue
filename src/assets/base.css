@@ -1,0 +1,76 @@
+/* src/assets/base.css */
+
+/* Reset Universal e Box-Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total do elemento */
+  margin: 0; /* Zera todas as margens */
+  padding: 0; /* Zera todos os paddings */
+}
+
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------- */
+/* Definição das Variáveis CSS para os Temas           */
+/* ---------------------------------------------------- */
+
+/* Tema Claro (Padrão) */
+:root {
+  --color-background: #f0f2f5;
+  --color-background-soft: #ffffff;
+  --color-background-alt: #f9f9f9;
+  --color-background-dark: #2c3e50;
+
+  --color-text: #333;
+  --color-text-soft: #666;
+  --color-text-header: #2c3e50;
+  --color-text-light: #ffffff;
+
+  --color-border: #e0e0e0;
+  --color-shadow-light: rgba(0, 0, 0, 0.05);
+  --color-shadow-medium: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.15);
+
+  --color-primary: #42b983;
+  --color-primary-hover: #368e61;
+  --color-secondary: #007bff;
+  --color-secondary-hover: #0056b3;
+}
+
+/* Tema Escuro */
+body.dark-theme {
+  --color-background: #1a1a1a;
+  --color-background-soft: #2a2a2a;
+  --color-background-alt: #3a3a3a;
+  --color-background-dark: #0f0f0f;
+
+  --color-text: #e0e0e0;
+  --color-text-soft: #b0b0b0;
+  --color-text-header: #f0f0f0;
+  --color-text-light: #f0f0f0;
+
+  --color-border: #444;
+  --color-shadow-light: rgba(255, 255, 255, 0.03);
+  --color-shadow-medium: rgba(0, 0, 0, 0.4);
+  --color-shadow-dark: rgba(0, 0, 0, 0.6);
+
+  --color-primary: #66cc99;
+  --color-primary-hover: #4fb27f;
+  --color-secondary: #6cb6ff;
+  --color-secondary-hover: #4a90d9;
+}
