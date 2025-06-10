@@ -1,12 +1,71 @@
-@import './base.css';
+/* Em: src/assets/main.css */
 
+/* Bloco que garante a altura total da tela */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================================== */
+/* INÍCIO DO SEU CSS DE TEMA (CORES E FONTES) - AGORA RESTAURADO  */
+/* =============================================================== */
+:root {
+  --color-background: #ffffff;
+  --color-background-soft: #f8f8f8;
+  --color-background-mute: #f2f2f2;
+
+  --color-border: #e6e6e6;
+  --color-border-hover: #cccccc;
+
+  --color-heading: #222222;
+  --color-text: #333333;
+
+  --color-brand: #42b883;
+  --color-brand-hover: #3ca874;
+
+  --text-base-size: 1rem;
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: var(--font-family-base);
+  font-size: var(--text-base-size);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* =============================================================== */
+/* FIM DO SEU CSS DE TEMA                                 */
+/* =============================================================== */
+
+
+/* Seletor #app com as correções de layout */
 #app {
+  width: 100%;
+  min-height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* Centraliza o conteúdo (o .app-container) no meio da tela */
+  align-items: center; 
+  
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
 }
 
+/* Estilos de links padrão */
 a,
 .green {
   text-decoration: none;
@@ -21,17 +80,20 @@ a,
   }
 }
 
+/* Media query original do seu projeto que foi removida sem querer */
 @media (min-width: 1024px) {
   body {
     display: flex;
     place-items: center;
   }
 
+  /* Nota: A regra abaixo pode causar o problema de alinhamento à esquerda novamente.
+     Se o conteúdo voltar para a esquerda, você pode remover ou comentar
+     o `display: grid` e `grid-template-columns` abaixo.
+  */
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
 }
-
-
