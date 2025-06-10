@@ -1,20 +1,17 @@
 /* src/assets/base.css */
 
-/* Reset Universal e Box-Sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ... (seu reset universal e body, #app permanecem os mesmos) ... */
+
+/* ---------------------------------------------------- */
+/* Definição das Variáveis CSS para o Tema Escuro (Padrão) */
+/* ---------------------------------------------------- */
 
 :root { /* O :root agora contém as variáveis do tema escuro como padrão */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif; /* A fonte Poppins para todo o site */
+  font-family: 'Poppins', sans-serif;
 
   /* Cores de fundo (agora são as do tema escuro) */
   --color-background: #121212; /* Preto bem escuro para o fundo principal */
@@ -42,42 +39,16 @@
 }
 
 body {
-  /* Não é mais necessário especificar font-family aqui se já está em :root */
-  /* font-family: 'Poppins', sans-serif; REMOVA ESTA LINHA */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Manter transição para suavidade, caso haja mudança de background por outra regra */
+  font-family: 'Poppins', sans-serif; /* A fonte Poppins para todo o site */
+  transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 
-  /* Adicionando o fundo de estrelas diretamente ao body, já que é o tema padrão */
+  /* Fundo de estrelas diretamente no body */
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="1" cy="1" r="0.5" fill="%23222" /><circle cx="5" cy="5" r="0.8" fill="%23333" /><circle cx="8" cy="2" r="0.6" fill="%231a1a1a" /><circle cx="3" cy="7" r="0.4" fill="%23282828" /></svg>');
   background-size: 50px 50px;
   background-attachment: fixed;
-  background-color: var(--color-background); /* Usa a variável para a cor de fundo */
+  background-color: var(--color-background);
 }
-
-/* REMOVA COMPLETAMENTE O BLOCO body.dark-theme SEGUINTE */
-/* body.dark-theme {
-  --color-background: #121212;
-  --color-background-soft: #1e1e1e;
-  --color-background-alt: #2a2a2a;
-  --color-background-dark: #0a0a0a;
-  --color-text: #f0f0f0;
-  --color-text-soft: #b0b0b0;
-  --color-text-header: #ffffff;
-  --color-text-light: #f0f0f0;
-  --color-border: #333333;
-  --color-shadow-light: rgba(255, 255, 255, 0.02);
-  --color-shadow-medium: rgba(0, 0, 0, 0.5);
-  --color-shadow-dark: rgba(0, 0, 0, 0.7);
-  --color-primary: #00aaff;
-  --color-primary-hover: #0088cc;
-  --color-secondary: #00eaff;
-  --color-secondary-hover: #00c7e0;
-} */
-
-/* REMOVA TAMBÉM O BLOCO body:not(.dark-theme) */
-/* body:not(.dark-theme) {
-  background-image: none;
-} */
