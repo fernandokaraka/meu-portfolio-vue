@@ -1,20 +1,18 @@
 <script setup>
 import FancyButton from '../components/FancyButton.vue';
-import ParticlesBackground from '../components/ParticlesBackground.vue'; // Importa o componente de partículas
+// REMOVA ESTA LINHA: import ParticlesBackground from '../components/ParticlesBackground.vue';
 </script>
 
 <template>
   <main class="home-hero-section">
-    <ParticlesBackground /> <div class="name-container">
-      <h1 class="first-name">Fernando</h1> <h1 class="last-name">Karakarian</h1> </div>
+    <div class="name-container">
+      <h1 class="first-name">Fernando</h1>
+      <h1 class="last-name">Karakarian</h1>
+    </div>
     <h2 class="role-text">Desenvolvedor Front-End<span class="cursor">|</span></h2>
     <FancyButton text="offline" type="text-only" class="status-button" />
 
-    <div class="top-right-nav">
-      <router-link to="/" class="top-nav-link">Home</router-link> <router-link to="/projetos" class="top-nav-link">Projetos</router-link>
-      <router-link to="/contato" class="top-nav-link">Contato</router-link>
-    </div>
-  </main>
+    </main>
 </template>
 
 <style scoped>
@@ -23,31 +21,30 @@ import ParticlesBackground from '../components/ParticlesBackground.vue'; // Impo
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Garante que a seção ocupe a altura total */
+  /* min-height: 100vh; Este pode ser removido, pois o content-area já garante altura */
   text-align: center;
-  width: 100%; /* Ocupa 100% da largura do content-area */
-  position: relative; /* Para posicionar a navegação superior-direita */
-  /* background-color: transparent; O background será das partículas e do body */
+  width: 100%;
+  position: relative;
 }
 
 .name-container {
-  display: flex; /* Para colocar Fernando e Karakarian lado a lado */
-  gap: 20px; /* Espaço entre "Fernando" e "Karakarian" */
+  display: flex;
+  gap: 20px;
   margin-bottom: 10px;
 }
 
 .first-name, .last-name {
-  font-size: 5em; /* Tamanho grande para o nome */
-  font-weight: 700; /* Negrito */
-  line-height: 1; /* Altura da linha justa */
-  letter-spacing: -2px; /* Pequeno ajuste para proximidade */
-  color: var(--color-text-header); /* Cor padrão do texto (branco no dark mode) */
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Um brilho sutil */
-  transition: color 0.3s ease; /* Transição para o modo claro */
+  font-size: 5em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--color-text-header);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: color 0.3s ease;
 }
 
 .last-name {
-  color: var(--color-primary); /* "Karakarian" em azul vibrante */
+  color: var(--color-primary);
 }
 
 .role-text {
@@ -56,16 +53,16 @@ import ParticlesBackground from '../components/ParticlesBackground.vue'; // Impo
   color: var(--color-text-soft);
   margin-bottom: 25px;
   position: relative;
-  display: inline-block; /* Para o cursor funcionar ao lado */
+  display: inline-block;
 }
 
 .cursor {
   font-weight: 300;
-  animation: blink 0.7s infinite alternate; /* Animação de piscar */
+  animation: blink 0.7s infinite alternate;
   position: absolute;
-  right: -15px; /* Posição do cursor */
+  right: -15px;
   top: 0;
-  color: var(--color-primary); /* Cor do cursor */
+  color: var(--color-primary);
 }
 
 @keyframes blink {
@@ -76,69 +73,17 @@ import ParticlesBackground from '../components/ParticlesBackground.vue'; // Impo
 .status-button {
   font-size: 0.9em;
   padding: 5px 12px;
-  border-radius: 20px; /* Mais arredondado */
-  background-color: var(--color-background-soft); /* Fundo sutil */
-  color: var(--color-text-soft); /* Texto suave */
-  border: 1px solid var(--color-border); /* Borda sutil */
-  margin-bottom: 50px; /* Espaço abaixo do botão */
-  pointer-events: none; /* Não clicável */
+  border-radius: 20px;
+  background-color: var(--color-background-soft);
+  color: var(--color-text-soft);
+  border: 1px solid var(--color-border);
+  margin-bottom: 50px;
+  pointer-events: none;
 }
 
-/* Links no canto superior direito */
-.top-right-nav {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  display: flex;
-  gap: 25px;
-}
-
-.top-nav-link {
-  color: var(--color-text-light); /* Branco */
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
-  padding: 8px 15px; /* Aumentar a área clicável */
-  border: 1px solid transparent; /* Borda transparente para não "pular" no hover */
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.top-nav-link:hover {
-  color: var(--color-primary); /* Azul no hover */
-  border-color: var(--color-primary); /* Borda azul no hover */
-  background-color: rgba(0, 170, 255, 0.1); /* Fundo sutil no hover */
-}
-
-/* Responsividade básica para fontes */
-@media (max-width: 768px) {
-  .first-name, .last-name {
-    font-size: 3.5em;
-  }
-  .role-text {
-    font-size: 1.4em;
-  }
-  .name-container {
-    flex-direction: column; /* Nome em duas linhas em mobile */
-    gap: 0;
-  }
-  .top-right-nav {
-    top: 20px;
-    right: 20px;
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .first-name, .last-name {
-    font-size: 2.5em;
-  }
-  .role-text {
-    font-size: 1.2em;
-  }
-  .top-right-nav {
-    flex-direction: column; /* Links um abaixo do outro */
-    align-items: flex-end;
-  }
-}
+/* REMOVA TODAS AS REGRAS ABAIXO, POIS ELAS PERTENCEM À NAVEGAÇÃO QUE FOI MOVIDA PARA O App.vue */
+/* .top-right-nav { ... } */
+/* .top-nav-link { ... } */
+/* .top-nav-link:hover { ... } */
+/* E as media queries para .top-right-nav */
 </style>

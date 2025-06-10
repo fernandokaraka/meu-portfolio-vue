@@ -39,16 +39,11 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* A fonte Poppins para todo o site */
+  font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-  /* Fundo de estrelas diretamente no body */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="1" cy="1" r="0.5" fill="%23222" /><circle cx="5" cy="5" r="0.8" fill="%23333" /><circle cx="8" cy="2" r="0.6" fill="%231a1a1a" /><circle cx="3" cy="7" r="0.4" fill="%23282828" /></svg>');
-  background-size: 50px 50px;
-  background-attachment: fixed;
-  background-color: var(--color-background);
+  overflow-x: hidden;
 }

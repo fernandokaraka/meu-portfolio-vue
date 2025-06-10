@@ -1,34 +1,108 @@
 <template>
-  <div id="particles-js" class="particles-background"></div>
+  <div id="tsparticles" class="particles-background"></div>
 </template>
 
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 
-// Importa a biblioteca particles.js dinamicamente
-let particlesJS = null;
+// As opções de configuração das partículas (iguais às anteriores)
+const options = {
+  background: {
+    color: {
+      value: "transparent"
+    }
+  },
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onClick: {
+        enable: true,
+        mode: "push"
+      },
+      onHover: {
+        enable: true,
+        mode: "grab"
+      },
+      resize: true
+    },
+    modes: {
+      bubble: {
+        distance: 400,
+        duration: 2,
+        opacity: 0.8,
+        size: 40
+      },
+      push: {
+        quantity: 4
+      },
+      grab: {
+        distance: 180,
+        links: {
+          opacity: 1
+        }
+      }
+    }
+  },
+  particles: {
+    color: {
+      value: "#ffffff"
+    },
+    links: {
+      color: "#ffffff",
+      distance: 150,
+      enable: true,
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      direction: "none",
+      enable: true,
+      outModes: "out",
+      random: false,
+      speed: 2,
+      straight: false
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800
+      },
+      value: 80
+    },
+    opacity: {
+      value: 0.5
+    },
+    shape: {
+      type: "circle"
+    },
+    size: {
+      value: { min: 1, max: 3 }
+    }
+  },
+  detectRetina: true
+};
 
-onMounted(async () => {
-  // Garante que o particlesJS esteja disponível globalmente
-  // para que a função particlesJS.load possa encontrá-lo.
-  // Isso é um truque comum quando a biblioteca não é modular.
-  await import('particles.js/particles');
-  particlesJS = window.particlesJS;
-
-  if (particlesJS) {
-    particlesJS.load('particles-js', '/particles.json', function() {
-      console.log('particles.js loaded - callback');
+onMounted(() => {
+  // Inicializa tsparticles no elemento com id 'tsparticles'
+  // Agora usamos window.tsParticles porque carregamos ele globalmente
+  if (window.tsParticles) {
+    window.tsParticles.load("tsparticles", options).then(() => {
+      console.log("tsparticles loaded from global.");
+    }).catch((error) => {
+      console.error("Error loading tsparticles:", error);
     });
   } else {
-    console.error('particles.js not found on window object.');
+    console.error("tsParticles global object not found.");
   }
 });
 
 onUnmounted(() => {
-  // Limpa os particles.js ao sair da página para evitar vazamentos de memória
-  if (window.pJSDom && window.pJSDom.length > 0) {
-    window.pJSDom[0].pJS.fn.vendors.destroypJS();
-    window.pJSDom = []; // Limpa a referência
+  // Destrói a instância de particles ao desmontar o componente
+  if (window.tsParticles) {
+    const container = window.tsParticles.dom().find(c => c.id === "tsparticles");
+    if (container) {
+      container.destroy();
+    }
   }
 });
 </script>
@@ -38,12 +112,10 @@ onUnmounted(() => {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: transparent; /* A cor de fundo principal virá do body/html */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  z-index: -1; /* Envia para trás do conteúdo */
   top: 0;
   left: 0;
+  z-index: -1; /* Envia para trás do conteúdo */
+  background-color: transparent; /* Garante que é transparente aqui */
+  pointer-events: none; /* Garante que o fundo não bloqueie cliques em outros elementos */
 }
 </style>
