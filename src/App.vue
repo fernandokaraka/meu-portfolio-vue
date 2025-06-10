@@ -1,6 +1,5 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
-import ParticlesBackground from './components/ParticlesBackground.vue';
 </script>
 
 <template>
@@ -11,7 +10,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
       <div class="header-left">
         <RouterLink to="/" class="site-title-link">
           <span class="first-name-header">Fernando</span>
-          <span class="last-name-header">Karakarian</span>
+          <span class="last-name-header">Karakanian</span>
         </RouterLink>
       </div>
       <nav class="header-nav">
@@ -28,26 +27,34 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
     <footer class="main-footer">
       <p>&copy; {{ new Date().getFullYear() }} Meu Portfólio. Todos os direitos reservados.</p>
       <div class="social-icons">
-        <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="social-icon">in</a>
-        <a href="https://github.com/seu-perfil" target="_blank" class="social-icon">gh</a>
-        <a href="#" class="social-icon">ig</a>
-        <a href="#" class="social-icon">dc</a>
+        <a href="https://www.linkedin.com/in/fernando-karakanian/" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i> </a>
+        <a href="https://github.com/fernandokaraka" target="_blank" class="social-icon" aria-label="GitHub">
+          <i class="fab fa-github"></i> </a>
+        <a href="https://instagram.com/fernandokaraka_tech" target="_blank" class="social-icon" aria-label="Instagram">
+          <i class="fab fa-instagram"></i> </a>
       </div>
     </footer>
   </div>
 </template>
 
 <style scoped>
+/* IMPORTANTE: Importa os estilos do Font Awesome */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  background-color: var(--color-background); /* **MANTENHA ESTA LINHA** */
   color: var(--color-text);
   position: relative;
   overflow-x: hidden;
 }
+
+/* ---------------------------------------------------- */
+/* Estilo do Cabeçalho Global                      */
+/* ---------------------------------------------------- */
 .global-header {
   position: fixed;
   top: 0;
@@ -70,7 +77,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
   transition: color 0.3s ease;
   display: flex;
   gap: 8px;
-  white-space: nowrap; /* Evita que o nome quebre em duas linhas prematuramente */
+  white-space: nowrap;
 }
 
 .site-title-link:hover {
@@ -87,9 +94,9 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
 
 .header-nav {
   display: flex;
-  gap: 15px; /* Mantemos o gap em 15px */
-  /* Adicione um flex-shrink para que os links possam encolher se necessário */
+  gap: 15px;
   flex-shrink: 1;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -101,7 +108,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
   border: 1px solid transparent;
   border-radius: 5px;
   transition: all 0.3s ease;
-  white-space: nowrap; /* Garante que o texto do link não quebre */
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -115,6 +122,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
   border-color: var(--color-primary);
 }
 
+/* Área de Conteúdo */
 .content-area {
   flex-grow: 1;
   padding: 0;
@@ -126,6 +134,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
   box-sizing: border-box;
 }
 
+/* Rodapé */
 .main-footer {
   background-color: transparent;
   color: var(--color-text-soft);
@@ -145,14 +154,21 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
 }
 
 .social-icon {
-  color: var(--color-text-soft);
+  color: var(--color-text-soft); /* Cor padrão dos ícones */
   text-decoration: none;
-  font-size: 1.5em;
-  transition: color 0.3s ease;
+  font-size: 1.8em; /* Tamanho dos ícones */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  width: 40px; /* Garante que todos os ícones tenham uma área clicável consistente */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Fazem os ícones ficarem em círculos se tiver background */
 }
 
 .social-icon:hover {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Cor de destaque no hover */
+  background-color: rgba(0, 170, 255, 0.1); /* Fundo sutil no hover */
 }
 
 /* Responsividade básica para o cabeçalho */
@@ -167,7 +183,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
     gap: 10px;
     justify-content: flex-start;
     width: 100%;
-    flex-wrap: wrap; /* Adicionar flex-wrap para quebrar os links se não couberem */
+    flex-wrap: wrap;
   }
   .site-title-link {
     font-size: 1.2em;
@@ -175,6 +191,7 @@ import ParticlesBackground from './components/ParticlesBackground.vue';
   }
   .nav-link {
     font-size: 1em;
+    padding: 5px 8px;
   }
   .content-area {
     padding-top: 120px;

@@ -12,16 +12,16 @@ const options = {
       value: "transparent"
     }
   },
-  fpsLimit: 120,
+  fpsLimit: 60,
   interactivity: {
     events: {
       onClick: {
-        enable: true,
+        enable: false,
         mode: "push"
       },
       onHover: {
         enable: true,
-        mode: "grab"
+        mode: "repulse"
       },
       resize: true
     },
@@ -45,10 +45,10 @@ const options = {
   },
   particles: {
     color: {
-      value: "#ffffff"
+      value: "#00aaff"
     },
     links: {
-      color: "#ffffff",
+      color: "#00aaff",
       distance: 150,
       enable: true,
       opacity: 0.4,
@@ -59,7 +59,7 @@ const options = {
       enable: true,
       outModes: "out",
       random: false,
-      speed: 2,
+      speed: 3,
       straight: false
     },
     number: {

@@ -46,4 +46,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  /* ADICIONE ESTA LINHA: */
+  background-color: var(--color-background); /* Aplica a cor de fundo do tema ao body */
 }
