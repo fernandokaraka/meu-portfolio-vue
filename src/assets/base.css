@@ -4,81 +4,80 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total do elemento */
-  margin: 0; /* Zera todas as margens */
-  padding: 0; /* Zera todos os paddings */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-:root {
+:root { /* O :root agora contém as variáveis do tema escuro como padrão */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%; /* Garante que o HTML ocupa 100% da altura da viewport */
-  width: 100%;  /* Garante que o HTML ocupa 100% da largura da viewport */
-}
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif; /* A fonte Poppins para todo o site */
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  width: 100%;      /* Garante que o body ocupa 100% da largura do HTML */
-  min-height: 100vh; /* Garante que o body ocupa pelo menos 100% da altura da viewport */
-  display: flex;     /* Transforma o body em um contêiner flexível */
-  flex-direction: column; /* Organiza os filhos (principalmente a div #app) em coluna */
-}
-
-/* Novo estilo para a div raiz do Vue */
-#app {
-  display: flex; /* Transforma a div #app em um container flexível */
-  flex-direction: column; /* Organiza os filhos (nosso App.vue) em coluna */
-  width: 100%; /* Garante que ela ocupe toda a largura do body */
-  min-height: 100vh; /* Garante que ela ocupe no mínimo a altura da viewport */
-}
-
-/* ---------------------------------------------------- */
-/* Definição das Variáveis CSS para os Temas           */
-/* ---------------------------------------------------- */
-
-/* Tema Claro (Padrão) */
-:root {
-  --color-background: #f0f2f5;
-  --color-background-soft: #ffffff;
-  --color-background-alt: #f9f9f9;
-  --color-background-dark: #2c3e50; /* Cor do cabeçalho/rodapé no tema claro */
-
-  --color-text: #333;
-  --color-text-soft: #666;
-  --color-text-header: #2c3e50;
-  --color-text-light: #ffffff; /* Texto em elementos escuros (header/footer) */
-
-  --color-border: #e0e0e0;
-  --color-shadow-light: rgba(0, 0, 0, 0.05);
-  --color-shadow-medium: rgba(0, 0, 0, 0.1);
-  --color-shadow-dark: rgba(0, 0, 0, 0.15);
-
-  --color-primary: #42b983; /* Verde Vue */
-  --color-primary-hover: #368e61;
-  --color-secondary: #007bff; /* Azul para links e botões */
-  --color-secondary-hover: #0056b3;
-}
-
-/* Tema Escuro */
-body.dark-theme {
+  /* Cores de fundo (agora são as do tema escuro) */
   --color-background: #121212; /* Preto bem escuro para o fundo principal */
   --color-background-soft: #1e1e1e; /* Cinza escuro para cards/containers */
   --color-background-alt: #2a2a2a; /* Outros elementos internos no tema escuro */
   --color-background-dark: #0a0a0a; /* Preto ainda mais escuro para header/footer */
 
+  /* Cores de texto (agora são as do tema escuro) */
   --color-text: #f0f0f0; /* Texto quase branco */
   --color-text-soft: #b0b0b0; /* Texto mais suave, cinza claro */
   --color-text-header: #ffffff; /* Títulos brancos */
   --color-text-light: #f0f0f0; /* Texto em elementos escuros (header/footer) */
 
+  /* Cores de borda e sombra (agora são as do tema escuro) */
   --color-border: #333333; /* Borda mais sutil */
   --color-shadow-light: rgba(255, 255, 255, 0.02);
-  --color-shadow-medium: rgba(0, 0, 0, 0.5); /* Sombra mais visível no escuro */
+  --color-shadow-medium: rgba(0, 0, 0, 0.5);
   --color-shadow-dark: rgba(0, 0, 0, 0.7);
 
-  --color-primary: #66cc99; /* Verde mais vibrante */
-  --color-primary-hover: #4fb27f;
-  --color-secondary: #6cb6ff; /* Azul mais claro */
-  --color-secondary-hover: #4a90d9;
+  /* Cores de destaque/ações (agora são as do tema escuro) */
+  --color-primary: #00aaff; /* Um azul mais claro e vibrante */
+  --color-primary-hover: #0088cc;
+  --color-secondary: #00eaff; /* Um azul ciano para segundo destaque */
+  --color-secondary-hover: #00c7e0;
 }
+
+body {
+  /* Não é mais necessário especificar font-family aqui se já está em :root */
+  /* font-family: 'Poppins', sans-serif; REMOVA ESTA LINHA */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Manter transição para suavidade, caso haja mudança de background por outra regra */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Adicionando o fundo de estrelas diretamente ao body, já que é o tema padrão */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="1" cy="1" r="0.5" fill="%23222" /><circle cx="5" cy="5" r="0.8" fill="%23333" /><circle cx="8" cy="2" r="0.6" fill="%231a1a1a" /><circle cx="3" cy="7" r="0.4" fill="%23282828" /></svg>');
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  background-color: var(--color-background); /* Usa a variável para a cor de fundo */
+}
+
+/* REMOVA COMPLETAMENTE O BLOCO body.dark-theme SEGUINTE */
+/* body.dark-theme {
+  --color-background: #121212;
+  --color-background-soft: #1e1e1e;
+  --color-background-alt: #2a2a2a;
+  --color-background-dark: #0a0a0a;
+  --color-text: #f0f0f0;
+  --color-text-soft: #b0b0b0;
+  --color-text-header: #ffffff;
+  --color-text-light: #f0f0f0;
+  --color-border: #333333;
+  --color-shadow-light: rgba(255, 255, 255, 0.02);
+  --color-shadow-medium: rgba(0, 0, 0, 0.5);
+  --color-shadow-dark: rgba(0, 0, 0, 0.7);
+  --color-primary: #00aaff;
+  --color-primary-hover: #0088cc;
+  --color-secondary: #00eaff;
+  --color-secondary-hover: #00c7e0;
+} */
+
+/* REMOVA TAMBÉM O BLOCO body:not(.dark-theme) */
+/* body:not(.dark-theme) {
+  background-image: none;
+} */

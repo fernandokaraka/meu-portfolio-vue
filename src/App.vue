@@ -1,136 +1,111 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import { ref, onMounted } from 'vue';
+import { RouterView } from 'vue-router';
+// Não precisamos mais de ref e onMounted para o tema, pois será fixo
+// import { ref, onMounted } from 'vue'; // REMOVA ESTA LINHA
+// import AppNavbar from './components/AppNavbar.vue'; // Já havia sido removido/comentado
 
-// Variável reativa para controlar o tema
-const isDarkTheme = ref(false);
-
-// Função para alternar o tema
-const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value;
-  // Adiciona ou remove a classe 'dark-theme' do body
-  document.body.classList.toggle('dark-theme', isDarkTheme.value);
-  // Salva a preferência no localStorage
-  localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
-};
-
-// Ao montar o componente, verifica a preferência salva
-onMounted(() => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    isDarkTheme.value = true;
-    document.body.classList.add('dark-theme');
-  } else {
-    // Se não houver preferência ou for 'light', garanta que 'dark-theme' não está lá
-    isDarkTheme.value = false;
-    document.body.classList.remove('dark-theme');
-  }
-});
+// REMOVA TODO O BLOCO DE LÓGICA DO TEMA
+// const isDarkTheme = ref(false);
+// const toggleTheme = () => {
+//   isDarkTheme.value = !isDarkTheme.value;
+//   document.body.classList.toggle('dark-theme', isDarkTheme.value);
+//   localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
+// };
+// onMounted(() => {
+//   const savedTheme = localStorage.getItem('theme');
+//   if (savedTheme === 'dark') {
+//     isDarkTheme.value = true;
+//     document.body.classList.add('dark-theme');
+//   } else {
+//     isDarkTheme.value = false;
+//     document.body.classList.remove('dark-theme');
+//   }
+//   if (!savedTheme) {
+//     isDarkTheme.value = true;
+//     document.body.classList.add('dark-theme');
+//     localStorage.setItem('theme', 'dark');
+//   }
+// });
 </script>
 
 <template>
   <div class="app-container">
     <header class="main-header">
-      <nav>
-        <RouterLink to="/" class="nav-link">Home</RouterLink>
-        <RouterLink to="/projetos" class="nav-link">Projetos</RouterLink>
-        <RouterLink to="/contato" class="nav-link">Contato</RouterLink>
-      </nav>
-      <button @click="toggleTheme" class="theme-toggle-btn">
-        {{ isDarkTheme ? 'Modo Claro' : 'Modo Escuro' }}
-      </button>
-    </header>
+      </header>
 
     <main class="content-area">
-  
       <RouterView />
     </main>
 
     <footer class="main-footer">
       <p>&copy; {{ new Date().getFullYear() }} Meu Portfólio. Todos os direitos reservados.</p>
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="social-icon">in</a>
+        <a href="https://github.com/seu-perfil" target="_blank" class="social-icon">gh</a>
+        <a href="#" class="social-icon">ig</a>
+        <a href="#" class="social-icon">dc</a>
+      </div>
     </footer>
   </div>
 </template>
 
 <style scoped>
-/* Estilos específicos do App.vue, usando as variáveis */
+/* Estilos específicos do App.vue */
 .app-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%; /* Garante que o container da aplicação ocupe toda a largura */
-  background-color: var(--color-background); /* Usando variável */
-  color: var(--color-text); /* Usando variável */
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-background); /* Continua usando a variável de fundo */
+  color: var(--color-text); /* Continua usando a variável de texto */
 }
 
 /* Cabeçalho */
 .main-header {
-  background-color: var(--color-background-dark); /* Usando variável */
-  padding: 18px 20px;
-  box-shadow: 0 3px 8px var(--color-shadow-medium); /* Usando variável */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; /* Garante que o header ocupe 100% da largura do pai */
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
-.main-header nav {
-  display: flex;
-  gap: 40px;
-}
-
-.nav-link {
-  color: var(--color-text-light); /* Usando variável */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.15em;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  background-color: var(--color-primary-hover); /* Ou uma cor rgba para hover */
-  color: var(--color-primary);
-}
-
-.nav-link.router-link-active {
-  color: var(--color-primary);
-  background-color: rgba(66, 185, 131, 0.1); /* Manter rgba para sutilidade */
-}
-
-/* Botão de alternar tema */
-.theme-toggle-btn {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-}
-
-.theme-toggle-btn:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* Área de Conteúdo - Ajustes */
+/* Área de Conteúdo */
 .content-area {
   flex-grow: 1;
-  padding: 0; /* Removendo o padding global daqui */
-  width: 100%; /* Ocupa 100% da largura disponível */
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Rodapé */
 .main-footer {
-  background-color: var(--color-background-dark); /* Usando variável */
-  color: var(--color-text-light); /* Usando variável */
+  background-color: transparent;
+  color: var(--color-text-soft);
   text-align: center;
   padding: 20px 0;
   font-size: 0.9em;
   margin-top: auto;
-  border-top: 1px solid var(--color-border);
-  width: 100%; /* Garante que o footer ocupe 100% da largura do pai */
+  border-top: none;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--color-primary);
 }
 </style>
