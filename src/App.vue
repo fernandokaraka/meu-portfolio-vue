@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
-import ParticlesBackground from './components/ParticlesBackground.vue';
+import ParticlesBackground from './components/ParticlesBackground.vue'; // IMPORTANTE: Verifique se esta linha está presente
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isScrolled = ref(false);
@@ -20,13 +20,11 @@ onUnmounted(() => {
 
 <template>
   <div class="app-container">
-    <ParticlesBackground />
-
-    <header class="global-header" :class="{ 'scrolled': isScrolled }">
+    <ParticlesBackground /> <header class="global-header" :class="{ 'scrolled': isScrolled }">
       <div class="header-left">
         <RouterLink to="/" class="site-title-link">
           <span class="first-name-header">Fernando</span>
-          <span class="last-name-header">Karakanian</span>
+          <span class="last-name-header">Karakarian</span>
         </RouterLink>
       </div>
       <nav class="header-nav">
@@ -69,9 +67,10 @@ onUnmounted(() => {
   min-height: 100vh;
   width: 100%;
   color: var(--color-text);
-  position: relative;
+  position: relative; /* Mantém a posição relativa para o z-index */
   overflow-x: hidden;
-  background-color: var(--color-background); /* Fundo da aplicação */
+  /* NOVO: REMOVIDO background-color daqui. O fundo principal da aplicação agora estará no body. */
+  /* background-color: var(--color-background); */
 }
 
 /* ---------------------------------------------------- */
@@ -160,11 +159,10 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* NOVO: Reduzimos o padding-top para ver se ajuda no scroll */
   padding-top: 70px; /* Ajuste para o conteúdo não ser empurrado demais pelo header fixo */
   box-sizing: border-box;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Garante que o conteúdo fique acima das partículas */
 }
 
 /* Rodapé */

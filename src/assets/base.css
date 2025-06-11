@@ -52,12 +52,12 @@ body {
   background-color: var(--color-background);
 }
 
-/* NOVO: Estilo para a div raiz do Vue */
+/* Estilo para a div raiz do Vue */
 #app {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  /* NOVO: Removido background-color aqui, para que o body cuide do fundo */
+  /* NOVO: REMOVIDO background-color daqui, para que o body cuide do fundo */
   /* background-color: var(--color-background); */
 }
