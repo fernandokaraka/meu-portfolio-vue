@@ -88,7 +88,7 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
 @media (max-width: 768px) {
   .home-hero-section {
     /* NOVO: Ajusta a altura mínima para mobile, reduzindo a folga */
-    min-height: 270px;
+    min-height: 0px;
     /* Se ainda der scroll, pode tentar diminuir os 70px do footer para 60px ou 50px */
   }
 
