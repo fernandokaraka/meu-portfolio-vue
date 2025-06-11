@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
-import ParticlesBackground from './components/ParticlesBackground.vue'; // IMPORTANTE: Verifique se esta linha está presente
+import ParticlesBackground from './components/ParticlesBackground.vue';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isScrolled = ref(false);
@@ -69,7 +69,7 @@ onUnmounted(() => {
   color: var(--color-text);
   position: relative; /* Mantém a posição relativa para o z-index */
   overflow-x: hidden;
-  /* NOVO: REMOVIDO background-color daqui. O fundo principal da aplicação agora estará no body. */
+  /* NOVO: REMOVIDO O BACKGROUND-COLOR DAQUI! */
   /* background-color: var(--color-background); */
 }
 

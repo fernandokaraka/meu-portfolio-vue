@@ -12,7 +12,6 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
       <h1 class="last-name">Karakanian</h1>
     </div>
     <h2 class="role-text">Desenvolvedor Front-End<span class="cursor">|</span></h2>
-    <FancyButton text="offline" type="text-only" class="status-button" />
   </main>
 </template>
 
@@ -88,9 +87,9 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
 /* Responsividade para fontes e layout */
 @media (max-width: 768px) {
   .home-hero-section {
-    /* NOVO: Reduz ainda mais a altura mínima para mobile */
-    min-height: calc(100vh - 120px - 70px); /* 100vh - padding-top do content-area (120px para mobile) - Altura REAL do footer (70px aprox.) */
-    /* Removi os 90px do footer e usei 70px como um ajuste mais agressivo */
+    /* NOVO: Ajusta a altura mínima para mobile, reduzindo a folga */
+    min-height: 300px;
+    /* Se ainda der scroll, pode tentar diminuir os 70px do footer para 60px ou 50px */
   }
 
   .first-name, .last-name {
