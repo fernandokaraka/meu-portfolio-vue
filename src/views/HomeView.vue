@@ -12,6 +12,7 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
       <h1 class="last-name">Karakanian</h1>
     </div>
     <h2 class="role-text">Desenvolvedor Front-End<span class="cursor">|</span></h2>
+    <FancyButton text="offline" type="text-only" class="status-button" />
   </main>
 </template>
 
@@ -21,7 +22,7 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* NOVO: Ajusta a altura da HomeView para que o conteúdo caiba */
+  /* Altura mínima para desktop. Ajusta para caber na tela - altura do header e footer */
   min-height: calc(100vh - 70px - 90px); /* 100vh - padding-top do content-area (70px) - altura aproximada do footer (90px) */
   text-align: center;
   width: 100%;
@@ -84,8 +85,14 @@ import ParticlesBackground from '../components/ParticlesBackground.vue';
   pointer-events: none;
 }
 
-/* Responsividade básica para fontes */
+/* Responsividade para fontes e layout */
 @media (max-width: 768px) {
+  .home-hero-section {
+    /* NOVO: Reduz ainda mais a altura mínima para mobile */
+    min-height: calc(100vh - 120px - 70px); /* 100vh - padding-top do content-area (120px para mobile) - Altura REAL do footer (70px aprox.) */
+    /* Removi os 90px do footer e usei 70px como um ajuste mais agressivo */
+  }
+
   .first-name, .last-name {
     font-size: 3.5em;
   }
