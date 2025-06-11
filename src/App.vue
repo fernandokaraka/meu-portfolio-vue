@@ -24,7 +24,7 @@ onUnmounted(() => {
       <div class="header-left">
         <RouterLink to="/" class="site-title-link">
           <span class="first-name-header">Fernando</span>
-          <span class="last-name-header">Karakarian</span>
+          <span class="last-name-header">Karakanian</span>
         </RouterLink>
       </div>
       <nav class="header-nav">

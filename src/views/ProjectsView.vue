@@ -6,31 +6,31 @@ const projects = ref([
     id: 1,
     title: 'AR Legalização',
     description: 'Site institucional focado em serviços de legalização de empresas, apresentando a atuação e os diferenciais da consultoria.',
-    image: 'https://imgur.com/XNmxEch',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/887894d18309ed7dd03c56d31edaef85952e7111/public/images/ar-legalizacao.png?raw=true',
     link: 'https://arlegalizacao.com.br',
-    technologies: ['wordpress', 'elementor', 'css3', 'php'], // EXEMPLO: Adicione suas tecnologias aqui
+    technologies: ['wordpress', 'elementor', 'css3', 'elementor'], // EXEMPLO: Adicione suas tecnologias aqui
   },
   {
     id: 2,
     title: 'Student Pass',
     description: 'Plataforma para auxiliar estudantes na aquisição de passagens e organização de viagens de estudo, com foco em praticidade.',
-    image: 'https://via.placeholder.com/400x250/ADD8E6/FFFFFF?text=Student+Pass',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/student-pass.png?raw=true',
     link: 'https://estpass.com.br',
-    technologies: ['wordpress', 'woocommerce', 'javascript', 'css3'], // EXEMPLO
+    technologies: ['wordpress' , 'html5', 'css3', 'elementor'], // EXEMPLO
   },
   {
     id: 3,
     title: 'Favela LLog',
     description: 'Projeto de logística e entregas com impacto social, conectando comunidades e facilitando o transporte de mercadorias.',
-    image: 'https://via.placeholder.com/400x250/90EE90/FFFFFF?text=Favela+LLog',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/favelallog.png?raw=true',
     link: 'https://favelallog.com.br',
-    technologies: ['wordpress', 'html5', 'css3', 'php'], // EXEMPLO
+    technologies: ['wordpress', 'html5', 'css3' , 'elementor'], // EXEMPLO
   },
   {
     id: 4,
     title: 'Hplast Distribuidora',
     description: 'Site institucional de uma distribuidora de produtos plásticos, com catálogo online e informações sobre os produtos e a empresa.',
-    image: 'https://via.placeholder.com/400x250/FF6347/FFFFFF?text=Hplast+Distribuidora',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/hplast.png?raw=true',
     link: 'https://hplastdistribuidora.com.br',
     technologies: ['wordpress', 'elementor', 'css3'], // EXEMPLO
   },
@@ -38,65 +38,57 @@ const projects = ref([
     id: 5,
     title: 'Marfasa Embalagens',
     description: 'Página web para uma empresa de embalagens, mostrando a variedade de produtos e soluções para diferentes setores industriais.',
-    image: 'https://via.placeholder.com/400x250/4682B4/FFFFFF?text=Marfasa+Embalagens',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/marfasa.png?raw=true',
     link: 'https://marfasa.com.br',
-    technologies: ['wordpress', 'html5', 'css3'], // EXEMPLO
+    technologies: ['wordpress', 'html5', 'css3', 'elementor'], // EXEMPLO
   },
   {
     id: 6,
     title: 'Marketaí (Founder)',
     description: 'Plataforma inovadora de marketing digital, onde atuei como founder, focada em soluções estratégicas e inteligência de mercado.',
-    image: 'https://via.placeholder.com/400x250/DA70D6/FFFFFF?text=Marketai',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/marketai.png?raw=true',
     link: 'https://marketai.com.br',
-    technologies: ['wordpress', 'marketing-digital', 'seo', 'analytics'], // EXEMPLO: Ícones Font Awesome para o que for possível
+    technologies: ['wordpress', 'html5', 'css3', 'elementor'], // EXEMPLO: Ícones Font Awesome para o que for possível
   },
   {
     id: 7,
     title: 'Padrão Kimura',
     description: 'Site para uma academia ou centro de treinamento focado em artes marciais, apresentando modalidades e horários.',
-    image: 'https://via.placeholder.com/400x250/8A2BE2/FFFFFF?text=Padrao+Kimura',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/heron-kimura.png?raw=true',
     link: 'https://padraokimura.com.br',
-    technologies: ['wordpress', 'html5', 'css3'], // EXEMPLO
+    technologies: ['wordpress', 'html5', 'css3', 'elementor'], // EXEMPLO
   },
   {
     id: 8,
     title: 'Porto Real Med',
     description: 'Página para uma clínica ou centro médico, com informações sobre especialidades, agendamentos e corpo clínico.',
-    image: 'https://via.placeholder.com/400x250/6A5ACD/FFFFFF?text=Porto+Real+Med',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/portorealmed.png?raw=true',
     link: 'https://portorealmed.com.br',
-    technologies: ['wordpress', 'elementor', 'css3'], // EXEMPLO
+    technologies: ['wordpress', 'css3' , 'html5' , 'elementor'],// EXEMPLO
   },
   {
     id: 9,
     title: 'Sow Salads',
     description: 'Site de um restaurante ou serviço de alimentação saudável, com cardápio, delivery e informações nutricionais.',
-    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/1aa01db49847db3dab5e842a6c8d0c9dd8dd5e19/public/Sow%20Salads.png',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/Sow%20Salads.png?raw=true',
     link: 'https://sowsalads.com.br',
-    technologies: ['wordpress', 'woocommerce', 'html5', 'css3'], // EXEMPLO
+    technologies: ['wordpress', 'css3' , 'html5', 'elementor'],// EXEMPLO
   },
   {
     id: 10,
     title: 'Stockler Sindicancia',
     description: 'Página profissional para serviços de sindicância e investigação, detalhando a atuação e os serviços oferecidos.',
-    image: 'https://via.placeholder.com/400x250/20B2AA/FFFFFF?text=Stockler+Sindicancia',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/stockler.png?raw=true',
     link: 'https://stocklersindicancia.com.br',
-    technologies: ['wordpress', 'html5', 'css3'], // EXEMPLO
+    technologies: ['wordpress', 'css3' , 'html5', 'elementor'], // EXEMPLO
   },
   {
     id: 11,
     title: 'Via Pharma',
     description: 'Site de uma farmácia ou drogaria, com busca de produtos, informações sobre saúde e serviços online.',
-    image: 'https://via.placeholder.com/400x250/00CED1/FFFFFF?text=Via+Pharma',
+    image: 'https://github.com/fernandokaraka/meu-portfolio-vue/blob/main/public/images/vpharma.png?raw=true',
     link: 'https://vpharma.com.br',
-    technologies: ['wordpress', 'ecommerce', 'css3'], // EXEMPLO
-  },
-  {
-    id: 12,
-    title: 'Portfólio Pessoal (Vue.js)',
-    description: 'Este próprio portfólio, desenvolvido com Vue.js e Vite, demonstrando minhas habilidades em front-end.',
-    image: 'https://via.placeholder.com/400x250/90EE90/FFFFFF?text=Meu+Portfolio+Vue.js',
-    link: '#',
-    technologies: ['vuejs', 'javascript', 'html5', 'css3', 'vite'], // EXEMPLO
+    technologies: ['wordpress', 'css3' , 'html5', 'elementor'], // EXEMPLO
   },
 ]);
 
@@ -191,7 +183,6 @@ h1 {
 
 .project-image {
   width: 100%;
-  height: 220px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
