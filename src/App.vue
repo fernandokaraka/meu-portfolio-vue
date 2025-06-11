@@ -39,7 +39,7 @@ onUnmounted(() => {
     </main>
 
     <footer class="main-footer">
-      <p>&copy; {{ new Date().getFullYear() }} Meu Portfólio. Todos os direitos reservados.</p>
+      <p>&copy; {{ new Date().getFullYear() }} Fernando Karakanian. Todos os direitos reservados.</p>
       <div class="social-icons">
         <a href="https://linkedin.com/in/fernando-karakanian/" target="_blank" class="social-icon" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
