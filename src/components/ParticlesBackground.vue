@@ -5,7 +5,6 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 
-// As opções de configuração das partículas (iguais às anteriores)
 const options = {
   background: {
     color: {
@@ -83,8 +82,6 @@ const options = {
 };
 
 onMounted(() => {
-  // Inicializa tsparticles no elemento com id 'tsparticles'
-  // Agora usamos window.tsParticles porque carregamos ele globalmente
   if (window.tsParticles) {
     window.tsParticles.load("tsparticles", options).then(() => {
       console.log("tsparticles loaded from global.");
@@ -97,7 +94,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  // Destrói a instância de particles ao desmontar o componente
   if (window.tsParticles) {
     const container = window.tsParticles.dom().find(c => c.id === "tsparticles");
     if (container) {
@@ -114,8 +110,8 @@ onUnmounted(() => {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: -1; /* Envia para trás do conteúdo */
-  background-color: transparent; /* Garante que é transparente aqui */
-  pointer-events: none; /* Garante que o fundo não bloqueie cliques em outros elementos */
+  z-index: -1; 
+  background-color: transparent; 
+  pointer-events: none; 
 }
 </style>

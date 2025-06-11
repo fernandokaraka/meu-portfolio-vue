@@ -1,12 +1,28 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
+import ParticlesBackground from './components/ParticlesBackground.vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 0;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
   <div class="app-container">
     <ParticlesBackground />
 
-    <header class="global-header">
+    <header class="global-header" :class="{ 'scrolled': isScrolled }">
       <div class="header-left">
         <RouterLink to="/" class="site-title-link">
           <span class="first-name-header">Fernando</span>
@@ -27,19 +43,24 @@ import { RouterView, RouterLink } from 'vue-router';
     <footer class="main-footer">
       <p>&copy; {{ new Date().getFullYear() }} Meu Portfólio. Todos os direitos reservados.</p>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/fernando-karakanian/" target="_blank" class="social-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i> </a>
+        <a href="https://linkedin.com/in/fernando-karakanian/" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
         <a href="https://github.com/fernandokaraka" target="_blank" class="social-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i> </a>
+          <i class="fab fa-github"></i>
+        </a>
         <a href="https://instagram.com/fernandokaraka_tech" target="_blank" class="social-icon" aria-label="Instagram">
-          <i class="fab fa-instagram"></i> </a>
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/5511931510669" target="_blank" class="social-icon" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
       </div>
     </footer>
   </div>
 </template>
 
 <style scoped>
-/* IMPORTANTE: Importa os estilos do Font Awesome */
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
 .app-container {
@@ -50,13 +71,14 @@ import { RouterView, RouterLink } from 'vue-router';
   color: var(--color-text);
   position: relative;
   overflow-x: hidden;
+  background-color: var(--color-background); /* Fundo da aplicação */
 }
 
 /* ---------------------------------------------------- */
 /* Estilo do Cabeçalho Global                      */
 /* ---------------------------------------------------- */
 .global-header {
-  position: fixed;
+  position: fixed; /* Fixa o cabeçalho no topo */
   top: 0;
   left: 0;
   width: 100%;
@@ -66,7 +88,14 @@ import { RouterView, RouterLink } from 'vue-router';
   align-items: center;
   z-index: 1000;
   background-color: transparent;
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+}
+
+.global-header.scrolled {
+  background-color: var(--color-background-dark); /* Fundo sólido (cor mais escura do seu tema) */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .site-title-link {
@@ -122,6 +151,7 @@ import { RouterView, RouterLink } from 'vue-router';
   border-color: var(--color-primary);
 }
 
+
 /* Área de Conteúdo */
 .content-area {
   flex-grow: 1;
@@ -130,8 +160,11 @@ import { RouterView, RouterLink } from 'vue-router';
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  /* NOVO: Reduzimos o padding-top para ver se ajuda no scroll */
+  padding-top: 70px; /* Ajuste para o conteúdo não ser empurrado demais pelo header fixo */
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 /* Rodapé */
@@ -139,7 +172,8 @@ import { RouterView, RouterLink } from 'vue-router';
   background-color: transparent;
   color: var(--color-text-soft);
   text-align: center;
-  padding: 20px 0;
+  padding: 30px 30px 30px 30px;
+  margin-bottom: 30px;
   font-size: 0.9em;
   margin-top: auto;
   border-top: none;
@@ -154,21 +188,21 @@ import { RouterView, RouterLink } from 'vue-router';
 }
 
 .social-icon {
-  color: var(--color-text-soft); /* Cor padrão dos ícones */
+  color: var(--color-text-soft);
   text-decoration: none;
-  font-size: 1.8em; /* Tamanho dos ícones */
+  font-size: 1.8em;
   transition: color 0.3s ease, background-color 0.3s ease;
-  width: 40px; /* Garante que todos os ícones tenham uma área clicável consistente */
+  width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Fazem os ícones ficarem em círculos se tiver background */
+  border-radius: 50%;
 }
 
 .social-icon:hover {
-  color: var(--color-primary); /* Cor de destaque no hover */
-  background-color: rgba(0, 170, 255, 0.1); /* Fundo sutil no hover */
+  color: var(--color-primary);
+  background-color: rgba(0, 170, 255, 0.1);
 }
 
 /* Responsividade básica para o cabeçalho */

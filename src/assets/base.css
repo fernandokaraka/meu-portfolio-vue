@@ -1,37 +1,40 @@
 /* src/assets/base.css */
 
-/* ... (seu reset universal e body, #app permanecem os mesmos) ... */
+/* Reset Universal e Box-Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ---------------------------------------------------- */
-/* Definição das Variáveis CSS para o Tema Escuro (Padrão) */
-/* ---------------------------------------------------- */
-
-:root { /* O :root agora contém as variáveis do tema escuro como padrão */
+:root {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
 
-  /* Cores de fundo (agora são as do tema escuro) */
+  /* Cores de fundo (Tema Escuro - Padrão) */
   --color-background: #121212; /* Preto bem escuro para o fundo principal */
   --color-background-soft: #1e1e1e; /* Cinza escuro para cards/containers */
   --color-background-alt: #2a2a2a; /* Outros elementos internos no tema escuro */
   --color-background-dark: #0a0a0a; /* Preto ainda mais escuro para header/footer */
 
-  /* Cores de texto (agora são as do tema escuro) */
+  /* Cores de texto */
   --color-text: #f0f0f0; /* Texto quase branco */
   --color-text-soft: #b0b0b0; /* Texto mais suave, cinza claro */
   --color-text-header: #ffffff; /* Títulos brancos */
   --color-text-light: #f0f0f0; /* Texto em elementos escuros (header/footer) */
 
-  /* Cores de borda e sombra (agora são as do tema escuro) */
+  /* Cores de borda e sombra */
   --color-border: #333333; /* Borda mais sutil */
   --color-shadow-light: rgba(255, 255, 255, 0.02);
   --color-shadow-medium: rgba(0, 0, 0, 0.5);
   --color-shadow-dark: rgba(0, 0, 0, 0.7);
 
-  /* Cores de destaque/ações (agora são as do tema escuro) */
+  /* Cores de destaque/ações */
   --color-primary: #00aaff; /* Um azul mais claro e vibrante */
   --color-primary-hover: #0088cc;
   --color-secondary: #00eaff; /* Um azul ciano para segundo destaque */
@@ -39,13 +42,22 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  /* ADICIONE ESTA LINHA: */
-  background-color: var(--color-background); /* Aplica a cor de fundo do tema ao body */
+  /* NOVO: A cor de fundo da aplicação inteira deve estar no body */
+  background-color: var(--color-background);
+}
+
+/* NOVO: Estilo para a div raiz do Vue */
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  /* NOVO: Removido background-color aqui, para que o body cuide do fundo */
+  /* background-color: var(--color-background); */
 }
